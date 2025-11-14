@@ -1,0 +1,232 @@
+.page-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.07);
+  animation: fadeIn 0.3s ease;
+}
+
+.page-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c2c2c;
+}
+
+.page-header p {
+  color: #777;
+  margin-top: 3px;
+}
+
+/* Stats Overview */
+.stats-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  background: #fafafa;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+}
+
+.stat-icon {
+  font-size: 30px;
+  margin-right: 12px;
+}
+
+.stat-info h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.stat-info p {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Controls Bar */
+.controls-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 18px 0;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.search-box {
+  position: relative;
+  width: 260px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 10px 8px 32px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  font-size: 14px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 8px;
+  top: 7px;
+  font-size: 16px;
+  color: #777;
+}
+
+.filter-select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+  padding: 9px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.btn-primary:hover { background: #005ec2; }
+
+/* Table Section */
+.table-container {
+  overflow-x: auto;
+}
+
+.invoices-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.invoices-table thead {
+  background: #f7f7f7;
+}
+
+.invoices-table th, .invoices-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ececec;
+  text-align: left;
+}
+
+.client-info small, .service-info small {
+  display: block;
+  color: #777;
+  font-size: 12px;
+}
+
+/* Status Badges (Colored) */
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.paid { background: #daf7d9; color: #2f8d3a; }
+.status-badge.pending { background: #fef5d1; color: #c06e00; }
+.status-badge.overdue { background: #ffd6d6; color: #c20000; }
+
+/* Action buttons */
+.btn-icon {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 4px;
+  transition: 0.2s;
+}
+.btn-icon:hover { transform: scale(1.18); }
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #777;
+}
+
+.empty-icon {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.btn-secondary {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d1d1;
+  background: #fafafa;
+  cursor: pointer;
+}
+.btn-secondary:hover { background: #f0f0f0; }
+
+.btn-success {
+  background: #28a745;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-success:hover { background: #1a7e30; }
+
+.btn-danger {
+  background: #e63946;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-danger:hover { background: #b02733; }
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(24,24,24,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background: #fff;
+  width: 90%;
+  max-width: 650px;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.15);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,133 @@
+:root[data-theme='light'] {
+  --bg: #f7f8fa;
+  --text: #202124;
+  --card: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --accent: #0078d7;
+  --button: #16a34a;
+}
+
+:root[data-theme='dark'] {
+  --bg: #121212;
+  --text: #f5f5f5;
+  --card: #1e1e1e;
+  --shadow: rgba(255, 255, 255, 0.1);
+  --accent: #f5c518;
+  --button: #22c55e;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", sans-serif;
+  transition: background 0.4s, color 0.4s;
+}
+
+.mikrotik-page {
+  padding: 2rem;
+  position: relative;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+}
+.theme-toggle:hover {
+  transform: rotate(20deg) scale(1.3);
+  color: gold;
+}
+
+.content {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: var(--card);
+  box-shadow: 0 8px 20px var(--shadow);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 450px;
+  transition: 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.form-card input,
+.form-card select {
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.4rem 0 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.btn-generate {
+  background: var(--button);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-generate:hover {
+  opacity: 0.8;
+}
+
+.guide-card {
+  max-width: 480px;
+}
+
+.guide-box {
+  background: #e9ecef30;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+.code-snippet {
+  background: #dfe6e9;
+  color: #222;
+  padding: 0.6rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  font-family: monospace;
+}
+
+.video-link {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+.video-link a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.video-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 950px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 90%;
+  }
+}

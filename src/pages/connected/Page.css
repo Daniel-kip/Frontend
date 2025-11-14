@@ -1,0 +1,205 @@
+/* ===== Page Layout ===== */
+.page-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #111, #1b1b1b);
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  padding: 40px 20px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #00bcd4;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+/* ===== Device Grid ===== */
+.device-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.device-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.device-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.2);
+}
+
+.device-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.device-header h3 {
+  font-size: 1.3rem;
+  color: #00bcd4;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status.online {
+  background-color: #43a047;
+}
+
+.status.offline {
+  background-color: #e53935;
+}
+
+/* ===== Device Info ===== */
+.device-type {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.device-ip {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.device-data {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+/* ===== Buttons ===== */
+.device-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button.deactivate {
+  background-color: #e53935;
+}
+
+button.reactivate {
+  background-color: #43a047;
+}
+
+button.delete {
+  background-color: #555;
+}
+
+button.delete:hover {
+  background-color: #777;
+}
+
+/* ===== Toast ===== */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #333;
+  padding: 14px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  z-index: 1500;
+  animation: slideIn 0.3s ease;
+}
+
+.toast.success {
+  background: #43a047;
+}
+
+.toast.error {
+  background: #e53935;
+}
+
+.toast.info {
+  background: #00bcd4;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ===== Spinner ===== */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ccc;
+  border-top-color: #00bcd4;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Fade In ===== */
+.fade-in {
+  animation: fadeIn 0.6s ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.no-devices {
+  text-align: center;
+  color: #aaa;
+}
