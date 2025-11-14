@@ -13,7 +13,7 @@ export default function LandingPage() {
   const contactRef = useRef(null);
   const lastScrollY = useRef(0);
 
-  // Memoized images array to prevent unnecessary re-renders
+  // images array 
   const images = React.useMemo(() => [
     require("../images/tel1.jpg"),
     require("../images/tel2.jpg"),
