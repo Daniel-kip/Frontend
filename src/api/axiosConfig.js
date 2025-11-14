@@ -9,8 +9,6 @@ const api = axios.create({
   },
 });
 
-// ... your existing axios configuration ...
-
 // Test function to verify backend connection
 export const testBackendConnection = async () => {
   try {
