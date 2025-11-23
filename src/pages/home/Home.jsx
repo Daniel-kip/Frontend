@@ -13,10 +13,6 @@ export default function LandingPage() {
   const contactRef = useRef(null);
   const lastScrollY = useRef(0);
 
-<<<<<<< HEAD
-  // images array 
-=======
->>>>>>> 18ea90f (Inital commit)
   const images = React.useMemo(() => [
     require("../images/tel1.jpg"),
     require("../images/tel2.jpg"),
