@@ -7,7 +7,7 @@ export default function SettingsPage() {
     emailUpdates: false,
     darkMode: false,
     language: "en",
-    currency: "USD",
+    currency: "KSH",
   });
 
   const handleToggle = (key) =>
@@ -81,7 +81,7 @@ export default function SettingsPage() {
               onChange={(e) => handleSelectChange("language", e.target.value)}
             >
               <option value="en">English</option>
-              <option value="es">Español</option>
+              <option value="es"><Swahili></Swahili></option>
               <option value="fr">Français</option>
               <option value="de">Deutsch</option>
             </select>

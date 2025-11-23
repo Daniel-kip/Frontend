@@ -302,9 +302,8 @@ export default function BulkSms() {
                 Login
               </button>
               <div className="demo-credentials">
-                <p><strong>Demo Credentials:</strong></p>
-                <p>Email: user@deltech.com | Password: User123!</p>
-                <p>Email: admin@deltech.com | Password: Admin123!</p>
+                <p><strong>For more info:</strong></p>
+                <p>Email: Deltech@gmail.com |visit www.dnet.tech</p>
               </div>
             </form>
           </div>

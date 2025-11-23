@@ -16,10 +16,10 @@ export default function AdvancedVoucher() {
   const [voucherCode, setVoucherCode] = useState('');
   const [message, setMessage] = useState('');
 
-  // Example: fetch packages when hotspot changes
+  
   useEffect(() => {
     if (!form.hotspotId) return;
-    // Replace with actual API
+    //API
     setPackages([
       { id: 'pkg1', name: '1 Hour Access' },
       { id: 'pkg2', name: '24 Hour Access' }
@@ -36,7 +36,7 @@ export default function AdvancedVoucher() {
       setMessage('Please fill all required fields');
       return;
     }
-    // Simple code generation logic
+    //code generation logic
     const code = 'VCH-' + Math.random().toString(36).substr(2, 8).toUpperCase();
     setVoucherCode(code);
     setMessage('Voucher generated successfully!');

@@ -1,4 +1,4 @@
-// Formats the current UTC date and time (e.g., "2025-11-07 08:35:21 UTC")
+// Formats the current UTC date and time
 export const formatUTCDateTime = () => {
   const now = new Date();
   return now.toISOString().replace("T", " ").substring(0, 19) + " UTC";
@@ -17,6 +17,6 @@ export const isTokenExpired = (token) => {
     return now >= expiryTime;
   } catch (error) {
     console.error("Error checking token expiration:", error);
-    return true; // assume expired if decoding fails
+    return true;
   }
 };

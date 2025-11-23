@@ -10,8 +10,6 @@ const api = axios.create({
   },
 });
 
-// ===== Helper functions =====
-
 // Set the access token globally
 export function setAccessToken(token) {
   accessToken = token;
@@ -55,7 +53,7 @@ api.interceptors.response.use(
       if (error.response.status === 401) {
         console.warn('Unauthorized: possible expired token');
         clearAccessToken();
-        // Optional: redirect to login page
+
         if (window.location.pathname !== '/login') {
           window.location.href = '/login';
         }

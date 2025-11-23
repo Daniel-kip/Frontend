@@ -4,7 +4,7 @@ import { AuthProvider, useAuth } from './Context/AuthContext';
 import ProtectedRoute from './Components/ProtectedRoute';
 import MainLayout from './layout/MainLayout';
 import LoadingScreen from './Components/LoadingScreen';
-import { testBackendConnection } from './api/axiosConfig'; // Import the test function
+import { testBackendConnection } from './api/axiosConfig'; 
 
 // Pages
 import Home from './pages/home/Home';
@@ -42,21 +42,20 @@ import ForgotPassword from './pages/Auth/ForgotPassword';
 function AppRoutes() {
   const { isAuthenticated, checkAuthStatus } = useAuth();
   const [appLoading, setAppLoading] = useState(true);
-  const [backendStatus, setBackendStatus] = useState('checking'); // 'checking', 'connected', 'error'
+  const [backendStatus, setBackendStatus] = useState('checking');
 
   useEffect(() => {
     const initializeApp = async () => {
       try {
         console.log('Starting app initialization...');
         
-        // First, test backend connection
         console.log(' Testing backend connection...');
         const isBackendConnected = await testBackendConnection();
         
         if (!isBackendConnected) {
           setBackendStatus('error');
           console.error(' Backend connection failed');
-          // Continue with app loading but show error state
+
         } else {
           setBackendStatus('connected');
           console.log(' Backend connection successful');
@@ -66,8 +65,7 @@ function AppRoutes() {
         console.log(' Checking authentication status...');
         await checkAuthStatus();
         
-        // Simulate minimum app loading time (2-3 seconds)
-        console.log('Simulating loading time...');
+        console.log('initializing loading time...');
         await new Promise(resolve => setTimeout(resolve, 2000 + Math.random() * 1000));
         
         console.log(' App initialization complete');
@@ -87,7 +85,7 @@ function AppRoutes() {
     return <LoadingScreen />;
   }
 
-  // Show backend connection error (optional - you can remove this if you want to proceed anyway)
+  //  backend connection error 
   if (backendStatus === 'error') {
     return (
       <div style={{
@@ -95,7 +93,7 @@ function AppRoutes() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
+        height: '60vh',
         backgroundColor: '#0f0f1f',
         color: 'white',
         fontFamily: 'Segoe UI, sans-serif',
@@ -103,8 +101,8 @@ function AppRoutes() {
         padding: '20px'
       }}>
         <div style={{ fontSize: '48px', marginBottom: '20px' }}>⚠️</div>
-        <h1 style={{ color: '#e46033', marginBottom: '10px' }}>Connection Error</h1>
-        <p style={{ marginBottom: '20px', maxWidth: '500px' }}>
+        <h1 style={{ color: '#eb1515ff', marginBottom: '10px' }}>Connection Error</h1>
+        <p style={{ marginBottom: '20px', maxWidth: '150px' }}>
           Unable to connect to the backend server. Please check if the backend is running and try again.
         </p>
         <div style={{ fontSize: '14px', color: '#ccc', marginBottom: '30px' }}>

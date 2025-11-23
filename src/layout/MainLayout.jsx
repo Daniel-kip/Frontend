@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Outlet, useLocation, Link } from "react-router-dom";
+import "./Sidebar.css";
 
 const CollapsibleGroup = ({ title, group, openGroup, onToggle, children }) => {
   const isOpen = openGroup === group;

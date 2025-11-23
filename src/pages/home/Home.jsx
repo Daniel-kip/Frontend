@@ -13,7 +13,10 @@ export default function LandingPage() {
   const contactRef = useRef(null);
   const lastScrollY = useRef(0);
 
+<<<<<<< HEAD
   // images array 
+=======
+>>>>>>> 18ea90f (Inital commit)
   const images = React.useMemo(() => [
     require("../images/tel1.jpg"),
     require("../images/tel2.jpg"),
@@ -21,17 +24,12 @@ export default function LandingPage() {
     require("../images/tel4.jpg"),
     require("../images/tel6.jpg"),
     require("../images/tel7.png")
-
   ], []);
 
-  // Shuffle images once on mount
   useEffect(() => {
     const shuffled = [...images].sort(() => Math.random() - 0.5);
-    // If you want to use shuffled images, you'd need to store them in state
-    // For now, we'll keep the original order for the rotation
   }, [images]);
 
-  // Background rotation
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((i) => (i + 1) % images.length);
@@ -39,7 +37,6 @@ export default function LandingPage() {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // Navbar show/hide based on scroll direction
   useEffect(() => {
     const handleScroll = () => {
       const current = window.scrollY;
@@ -62,14 +59,12 @@ export default function LandingPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Redirect if user is not authenticated
   useEffect(() => {
     if (!isLoadingAuth && !isAuthenticated) {
       navigate("/login", { replace: true });
     }
   }, [isAuthenticated, isLoadingAuth, navigate]);
 
-  // Memoized handlers
   const handleLogout = useCallback(async () => {
     try {
       await logout();
@@ -90,15 +85,12 @@ export default function LandingPage() {
 
   const handleContactSubmit = useCallback((e) => {
     e.preventDefault();
-    // Add your contact form submission logic here
     console.log("Contact form submitted");
     setShowContact(false);
-    // You can add API call here to submit the form data
   }, []);
 
   const bgImage = images[index];
 
-  // Prevent rendering before auth check is complete
   if (isLoadingAuth) {
     return (
       <div className="loading-screen">
@@ -108,15 +100,15 @@ export default function LandingPage() {
     );
   }
 
-  // Additional safety check
   if (!isAuthenticated) {
-    return null; // or redirect component
+    return null;
   }
 
   return (
     <div className="landing-page">
       {/* Navbar */}
       <nav className={`navbar ${!showNavbar ? "hidden" : ""}`}>
+        <div className="nav-left" />
         <div className="logo">
           DelTech<span className="accent">Networks</span>
         </div>
@@ -165,7 +157,7 @@ export default function LandingPage() {
           </p>
         </div>
         <img
-          src={images[1]} // Use image from the array
+          src={images[1]} 
           alt="Technicians at work"
           className="section-image tilt"
           loading="lazy"
@@ -218,7 +210,7 @@ export default function LandingPage() {
           </ul>
         </div>
         <img
-          src={images[2]} // Use image from the array
+          src={images[2]}
           alt="Coverage Map"
           className="section-image tilt"
           loading="lazy"
@@ -238,30 +230,23 @@ export default function LandingPage() {
       {showContact && (
         <Modal onClose={() => setShowContact(false)} title="Get in Touch">
           <form className="contact-form" onSubmit={handleContactSubmit}>
-            <input 
-              type="text" 
-              placeholder="Full Name" 
-              required 
-              aria-label="Full Name"
-            />
-            <input 
-              type="email" 
-              placeholder="Email Address" 
-              required 
-              aria-label="Email Address"
-            />
-            <input 
-              type="tel" 
-              placeholder="Phone Number" 
-              aria-label="Phone Number"
-            />
-            <textarea 
-              placeholder="Your Message" 
-              rows="4" 
-              required 
-              aria-label="Your Message"
-            ></textarea>
-            <button type="submit">Send Message</button>
+            <div className="input-group">
+              <input type="text" placeholder=" " required aria-label="Full Name" />
+              <label>Full Name</label>
+            </div>
+            <div className="input-group">
+              <input type="email" placeholder=" " required aria-label="Email Address" />
+              <label>Email Address</label>
+            </div>
+            <div className="input-group">
+              <input type="tel" placeholder=" " aria-label="Phone Number" />
+              <label>Phone Number</label>
+            </div>
+            <div className="input-group">
+              <textarea placeholder=" " rows="4" required aria-label="Your Message" />
+              <label>Your Message</label>
+            </div>
+            <button type="submit" className="contact-submit">Send Message</button>
           </form>
         </Modal>
       )}
@@ -282,12 +267,10 @@ const ServiceCard = React.memo(({ title, desc }) => {
 ServiceCard.displayName = 'ServiceCard';
 
 const Modal = React.memo(({ title, children, onClose }) => {
-  // Close modal on Escape key
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape') onClose();
     };
-    
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, [onClose]);
@@ -298,7 +281,7 @@ const Modal = React.memo(({ title, children, onClose }) => {
         <div className="modal-header">
           <h2>{title}</h2>
           <button 
-            className="close-btn" 
+            className="modal-close-x" 
             onClick={onClose}
             aria-label="Close modal"
           >
